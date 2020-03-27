@@ -62,8 +62,10 @@
       thisProduct.renderInMenu();
       thisProduct.getElements();
       thisProduct.initAccordion();
+      thisProduct.initOrderForm();
+      thisProduct.processOrder();
 
-      console.log('new Product:', thisProduct);
+      // console.log('new Product:', thisProduct);
     }
     renderInMenu(){
       const thisProduct = this;
@@ -98,7 +100,7 @@
       /* prevent default action for event */
       clickableTrigger.addEventListener('click', function() {
         event.preventDefault ();
-        console.log(thisProduct.element);
+        // console.log(thisProduct.element);
 
         /* toggle active class on element of thisProduct */
         thisProduct.element.classList.toggle('active');
@@ -116,6 +118,62 @@
         } 
       });
     } 
+
+    initOrderForm(){
+      const thisProduct = this;
+
+      thisProduct.form.addEventListener('submit', function(event){
+        event.preventDefault();
+        thisProduct.processOrder();
+      });
+      
+      for(let input of thisProduct.formInputs){
+        input.addEventListener('change', function(){
+          thisProduct.processOrder();
+        });
+      }
+      
+      thisProduct.cartButton.addEventListener('click', function(event){
+        event.preventDefault();
+        thisProduct.processOrder();
+      });
+    }
+
+    processOrder(){
+
+      const thisProduct = this;
+
+      /* read all data from the form (using utils.serializeFormToObject) and save it to const formData */
+      const formData = utils.serializeFormToObject(thisProduct.form);
+
+      thisProduct.params = {};
+
+      /* set variable price to equal thisProduct.data.price */
+      let price = thisProduct.data.price;
+
+      /* START LOOP: for each paramId in thisProduct.data.params */
+      for(let paramId in thisProduct.data.params) {
+        const param = thisProduct.data.params[paramId];
+
+        /* START LOOP: for each optionId in param.options */
+        for(let optionId in param.options) {
+          let option = param.options[optionId];
+
+          const optionSelected = formData.hasOwnProperty(paramId) && formData[paramId].indexOf(optionId) > -1;
+         
+          /* START IF: if option is selected and option is not default */
+          if(optionSelected  && !option.default){
+            price = price + param.option[optionId].price;
+
+          /* START ELSE IF: if option is not selected and option is default */
+          } else if(optionSelected && option.default){
+            price = price - param.option[optionId].price;
+          }
+        }
+      }
+      /* set the contents of thisProduct.priceElem to be the value of variable price */
+      thisProduct.priceElem.innerHTML = thisProduct.price;
+    }
   }
 
     
@@ -134,18 +192,18 @@
 
     initData: function(){
       const thisApp = this;
-      console.log(dataSource);
+      // console.log(dataSource);
       thisApp.data = dataSource;
 
     },
 
     init: function(){
       const thisApp = this;
-      console.log('*** App starting ***');
-      console.log('thisApp:', thisApp);
+      // console.log('*** App starting ***');
+      // console.log('thisApp:', thisApp);
       console.log('classNames:', classNames);
       console.log('settings:', settings);
-      console.log('templates:', templates);
+      // console.log('templates:', templates);
 
       thisApp.initData();
       thisApp.initMenu();
