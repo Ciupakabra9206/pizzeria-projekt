@@ -322,6 +322,12 @@
         thisCart.dom.wrapper.classList.toggle(classNames.cart.wrapperActive);
       });
     }
+
+    // add(menuProduct) {
+    //   const thisCart = this;
+
+    //   console.log('adding product', menuProduct);
+    // }
   }
 
   const app = {
@@ -343,9 +349,10 @@
     },
     initCart: function(){
       const thisApp = this;
-
-      const cartElem = document.querySelectorAll(select.containerOf.cart);
+      const cartElem = document.querySelector(select.containerOf.cart);
+      console.log('cartElem', cartElem);
       thisApp.cart = new Cart(cartElem);
+      
     },
 
     init: function(){
