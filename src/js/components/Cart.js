@@ -1,7 +1,7 @@
 
-import {templates, select, classNames, settings} from './settings.js';
-import CartProduct from './component/CartProduct.js';
-import utils from './utils.js';
+import {templates, select, classNames, settings} from '../settings.js';
+import CartProduct from './CartProduct.js';
+import utils from '../utils.js';
 
 class Cart{
   constructor(element){
@@ -86,10 +86,7 @@ class Cart{
     fetch(url, options)
       .then(function(response){
         return response.json();
-      })
-      .then(function(parsedResponse){
-        console.log('parsedResponse', parsedResponse);
-      });
+      }); 
   }
 
   remove(cartProduct){
