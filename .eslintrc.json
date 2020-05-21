@@ -5,7 +5,8 @@
     },
     "extends": "eslint:recommended",
     "globals": {
-        "Handlebars": "readonly"
+        "Handlebars": "readonly",
+        "rangeSlider": "readonly"
     },
     "parserOptions": {
         "ecmaVersion": 2015,
