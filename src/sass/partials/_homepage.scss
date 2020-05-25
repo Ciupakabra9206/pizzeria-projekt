@@ -1,0 +1,199 @@
+.main-nav {
+    display: none !important;
+  }
+  
+  .homepage__wrapper {
+    margin: 40px auto;
+    margin-bottom: 0px;
+    padding: 70px 50px;
+    background: $color-light;
+    border-bottom: 1px solid #e6e6e6;
+    border-radius: 5px;  
+  }
+  
+  .nav-windows-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    color: $color-light;
+    margin-bottom: 10px;
+  }
+  
+  .nav-box {
+    height: 120px;
+    flex: 1 0 45%;
+    margin: 3px;
+    background-color: #ff6b6b;
+    border-radius: 5px;
+    background-position: center;
+    background-repeat: no-repeat;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .nav-box:first-child {
+    background-image: url('../../images/assets/pizza-1.jpg');
+  }
+  
+  h2 {
+    margin: 45px 0;
+    transition: all .4s;
+  }
+    
+  .nav-box:nth-child(2) {
+    background-image: url('../../images/assets/pizza-2.jpg');
+  }
+      
+  h2 {
+    margin: 45px 0;
+    transition: all .4s;
+  }
+    
+  .nav-box:nth-child(1):hover h2,
+  .nav-box:nth-child(2):hover h2 {
+    margin: 20px 0;
+  }
+  
+  a {
+    color: $color-light;
+    text-align: center;
+    text-decoration: none;
+  }
+    
+  h2 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 380;
+    margin: 30px 0 10px 0;
+    align-items: center;
+    
+  }
+  
+  .timetable {
+    margin: 0;
+  }
+  
+  .carousel {
+    padding: 30px 0;
+  }
+  
+  .carousel__wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    height: 400px;
+    margin-top: 10px;
+  }
+  
+  .carousel__image  {
+    position: relative;
+    object-fit: cover;
+    width: 200px;
+    height: 200px;
+    flex: 0 0 31%;
+    margin: 5px;
+    margin-top: 20px;
+  }
+  
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+  }    
+  
+  .bootstrap {
+    position: relative;
+    width: 60%;
+    top: 0;
+    right: 0;
+  }
+    
+  h4 {
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 40px;
+  }
+    
+  .author {
+    font-style: italic;
+  }
+    
+  .carousel-indicators {
+    justify-content: flex-start;
+    margin: 0px;
+  }
+  
+  .carousel-indicators li {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: $color-dark;
+    margin-right: 10px;
+    margin-left: 10px;
+     
+  }
+  
+  .gallery__wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0px auto 20px auto;
+  }
+    
+  .gallery__image {
+    position: relative;
+    object-fit: cover;
+    height: 200px;
+    width: 200px;
+    margin: 6px;
+    flex: 0 0 31%;
+  }
+  
+  img {  
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  
+  .icon {
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, .4);
+    opacity: 0;
+    transition: .4s;
+    color: $color-light;
+    border-radius: 5px;
+  }
+    
+  i {
+    margin: 2px;
+  }
+      
+  .gallery__image:hover .icon {
+    opacity: 1;
+  }
+    
+  .fa-heart {
+    color: $color-danger;
+  }
+    
+  .gallery__image i:hover {
+    color: $color-main;
+    cursor: pointer;
+  }
+    
+  #instagram {
+    color: $color-danger;
+    padding: 10px;
+    text-decoration: underline;
+  } 
