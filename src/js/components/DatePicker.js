@@ -17,9 +17,11 @@ class DataPicker extends BaseWidget{
   initPlugin(){
     const thisWidget = this;
 
+    console.log(thisWidget);
     thisWidget.minDate = new Date(thisWidget.value);
     thisWidget.maxDate = utils.addDays(thisWidget.minDate, settings.datePicker.maxDaysInFuture);
-  
+    thisWidget.dom.input.value =  utils.dateToStr(new Date());
+
     flatpickr(thisWidget.dom.input,{
       defaultData: thisWidget.minData,
       minDate: thisWidget.minDate,
